@@ -1,0 +1,31 @@
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "dubber"
+version = "0.1.0"
+description = "Local offline video dubbing pipeline for Apple Silicon"
+authors = [
+    {name = "Jules", email = "jules@example.com"},
+]
+requires-python = ">=3.11"
+dependencies = [
+    "torch",
+    "torchaudio",
+    "demucs",
+    "faster-whisper",
+    "transformers",
+    "TTS",
+    "pyannote.audio",
+    "pydantic",
+    "numpy",
+    "tqdm",
+    "sacremoses", # often needed for translation tokenizers
+]
+
+[project.scripts]
+dubber = "dubber.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
